@@ -9,8 +9,8 @@ import java.util.ArrayList;
  */
 public class GameScene extends JPanel implements Runnable {
 
-    public static int HEIGHT = 600;
-    public static int WIDTH = 900;
+    public static final int HEIGHT = 600;
+    public static final int WIDTH = 900;
     public static boolean isGame;
     public static boolean gameRun = true;
     private Ball balls;
