@@ -4,8 +4,8 @@ import java.awt.*;
  * Created by stas on 07.06.17.
  */
 public class Ball {
-    private int dx = 5;
-    private int dy = 5;
+    private int dx = 2;
+    private int dy = 2;
     private int width = 20;
     private int height = 20;
     private int x;
@@ -16,7 +16,7 @@ public class Ball {
         y = (int) (Math.random() * 201) + 300;
     }
 
-    public void draw(Graphics g) {
+    public void draw(Graphics2D g) {
         g.setColor(Color.yellow);
         g.fillOval(x, y, width, height);
 

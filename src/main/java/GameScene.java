@@ -16,6 +16,8 @@ public class GameScene extends JPanel implements Runnable {
     private Ball balls;
     private Racket racket;
     private ArrayList<Bricks> bricks;
+    private Graphics2D g2;
+    private Thread th;
 
 
     public GameScene() {
@@ -71,7 +73,8 @@ public class GameScene extends JPanel implements Runnable {
         balls = new Ball();
         racket = new Racket();
         bricks = new Bricks().generateBriks();
-        new Thread(this).start();
+        th = new Thread(this);
+        th.start();
 
     }
 
@@ -79,11 +82,13 @@ public class GameScene extends JPanel implements Runnable {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        g2 = (Graphics2D) g;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         if (!isGame) {
-            balls.draw(g);
-            racket.draw(g);
+            balls.draw(g2);
+            racket.draw(g2);
             for (Bricks brick : bricks) {
-                brick.draw(g);
+                brick.draw(g2);
             }
         }
         if (isGame) {
@@ -100,14 +105,14 @@ public class GameScene extends JPanel implements Runnable {
 
     @Override
     public void run() {
-
         while (!isGame) {
             try {
-                Thread.sleep(30);
+                Thread.sleep(10);
+
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
             balls.move();
             racket.move();
             Rectangle ballHit = new Rectangle(balls.getX(), balls.getY(), balls.getWidth(), balls.getHeight());

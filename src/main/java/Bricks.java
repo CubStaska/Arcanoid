@@ -34,7 +34,7 @@ public class Bricks {
         return bricks;
     }
 
-    public void draw(Graphics g) {
+    public void draw(Graphics2D g) {
         g.setColor(Color.RED);
         g.fill3DRect(x, y, width, height, true);
 

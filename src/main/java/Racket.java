@@ -8,11 +8,11 @@ public class Racket {
     public static boolean RIGTH;
     private int width = 80;
     private int height = 15;
-    private int speed = 8;
+    private int speed = 5;
     private int x = GameScene.WIDTH / 2;
     private int y = GameScene.HEIGHT - 20;
 
-    public void draw(Graphics g) {
+    public void draw(Graphics2D g) {
         g.setColor(Color.white);
         g.fillRoundRect(x, y, width, height, 10, 10);
 
