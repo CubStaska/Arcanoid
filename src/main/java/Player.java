@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * Created by stas on 08.06.17.
  */
-public class Racket {
+public class Player {
     public static boolean LEFT;
     public static boolean RIGTH;
     private int width = 80;

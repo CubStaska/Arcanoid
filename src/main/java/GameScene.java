@@ -14,7 +14,7 @@ public class GameScene extends JPanel implements Runnable {
     public static boolean isGame;
     public static boolean gameRun = true;
     private Ball balls;
-    private Racket racket;
+    private Player players;
     private ArrayList<Bricks> bricks;
     private Graphics2D g2;
 
@@ -34,10 +34,10 @@ public class GameScene extends JPanel implements Runnable {
             @Override
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    Racket.LEFT = true;
+                    Player.LEFT = true;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    Racket.RIGTH = true;
+                    Player.RIGTH = true;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                     if (!gameRun) {
@@ -56,10 +56,10 @@ public class GameScene extends JPanel implements Runnable {
             @Override
             public void keyReleased(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    Racket.LEFT = false;
+                    Player.LEFT = false;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    Racket.RIGTH = false;
+                    Player.RIGTH = false;
                 }
             }
         });
@@ -70,7 +70,7 @@ public class GameScene extends JPanel implements Runnable {
     public void initGame() {
 
         balls = new Ball();
-        racket = new Racket();
+        players = new Player();
         bricks = new Bricks().generateBriks();
         new Thread(this).start();
     }
@@ -83,7 +83,7 @@ public class GameScene extends JPanel implements Runnable {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         if (!isGame) {
             balls.draw(g2);
-            racket.draw(g2);
+            players.draw(g2);
             for (Bricks brick : bricks) {
                 brick.draw(g2);
             }
@@ -111,9 +111,9 @@ public class GameScene extends JPanel implements Runnable {
                 e.printStackTrace();
             }
             balls.move();
-            racket.move();
+            players.move();
             Rectangle ballHit = new Rectangle(balls.getX(), balls.getY(), balls.getWidth(), balls.getHeight());
-            Rectangle racketHit = new Rectangle(racket.getX(), racket.getY(), racket.getWidth(), racket.getHeight());
+            Rectangle racketHit = new Rectangle(players.getX(), players.getY(), players.getWidth(), players.getHeight());
 
             if (ballHit.intersects(racketHit)) {
                 balls.setDy(-balls.getDy());
