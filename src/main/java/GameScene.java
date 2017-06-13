@@ -12,7 +12,7 @@ public class GameScene extends JPanel implements Runnable {
     public static final int HEIGHT = 600;
     public static final int WIDTH = 900;
     public static boolean isGame;
-    public static boolean gameRun = true;
+    public static boolean gameRun;
     private Ball balls;
     private Player players;
     private ArrayList<Bricks> bricks;
@@ -68,7 +68,7 @@ public class GameScene extends JPanel implements Runnable {
     }
 
     public void initGame() {
-
+        gameRun=true;
         balls = new Ball();
         players = new Player();
         bricks = new Bricks().generateBriks();
