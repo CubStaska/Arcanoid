@@ -40,7 +40,6 @@ public class GameScene extends JPanel implements Runnable {
                     Racket.RIGTH = true;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    System.out.println(gameRun);
                     if (!gameRun) {
                         isGame = false;
                         initGame();
