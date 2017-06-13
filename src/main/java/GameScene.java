@@ -74,8 +74,6 @@ public class GameScene extends JPanel implements Runnable {
         racket = new Racket();
         bricks = new Bricks().generateBriks();
         new Thread(this).start();
-       ;
-
     }
 
 
