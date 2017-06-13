@@ -17,7 +17,7 @@ public class GameScene extends JPanel implements Runnable {
     private Racket racket;
     private ArrayList<Bricks> bricks;
     private Graphics2D g2;
-    private Thread th;
+
 
 
     public GameScene() {
@@ -73,8 +73,8 @@ public class GameScene extends JPanel implements Runnable {
         balls = new Ball();
         racket = new Racket();
         bricks = new Bricks().generateBriks();
-        th = new Thread(this);
-        th.start();
+        new Thread(this).start();
+       ;
 
     }
 
