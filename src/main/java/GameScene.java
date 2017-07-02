@@ -95,6 +95,7 @@ public class GameScene extends JPanel implements Runnable {
             g.drawString("Game Over", WIDTH / 2 - 20, HEIGHT / 2);
             g.drawString("press SPACE new Game", WIDTH / 2 - 60, HEIGHT / 2 + 25);
             g.drawString("press ESC exit Game", WIDTH / 2 - 50, HEIGHT / 2 + 50);
+            gameRun = false;
         }
 
     }
